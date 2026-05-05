@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation</title>
+    <link rel="icon" type="image/svg+xml" href="spray-can.svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="input-card">
+
+        <div class="image-section">
+            <img src="crop_image.jpg" alt="fertilizer">
+        </div>
+        <div class="form-section">
+            <h1>Fertilizer Requirement per Ropani</h1>
+            <!-- CROP SELECTION -->
+            <div class="field-card">
+                <label>Crop Selection</label>
+                <select id="cropSelect" onchange="setCropBase()">
+                    <option value="">--Select Crop--</option>
+                </select>
+            </div>
+            <!-- NITROGEN -->
+            <div class="field-card">
+                <div class="label-row">
+                    <span>Nitrogen (N)</span>
+                    <i data-lucide="badge-info" class="info-btn" onclick="openInfo('n')"></i>
+                </div>
+                <input type="number" id="nitrogen" placeholder="Enter Nitrogen (N)">
+            </div>
+            <!-- PHOSPHORUS -->
+            <div class="field-card">
+                <div class="label-row">
+                    <span>Phosphorus (P)</span>
+                    <i data-lucide="badge-info" class="info-btn" onclick="openInfo('p')"></i>
+                </div>
+                <input type="number" id="phosphorus" placeholder="Enter Phosphorus (P)">
+            </div>
+            <!-- POTASSIUM -->
+            <div class="field-card">
+                <div class="label-row">
+                    <span>Potassium (K)</span>
+                    <i data-lucide="badge-info" class="info-btn" onclick="openInfo('k')"></i>
+                </div>
+                <input type="number" id="potassium" placeholder="Enter Potassium (K)">
+            </div>
+            <button class="calculate-btn" onclick="calculateNPK()">Calculate</button>
+        </div>
+
+    </div>
+</div>
+<!-- INFO MODAL -->
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <i class="close-btn" data-lucide="x" onclick="closeInfo()"></i>
+        <h3 id="infoTitle"></h3>
+        <p id="infoText"></p>
+    </div>
+</div>
+<!-- RESULT MODAL -->
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+        <i class="close-btn" data-lucide="x" onclick="closeResult()"></i>
+        <h3>Recommended Fertilizer Addition</h3>
+        <p id="resultText"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+<script> lucide.createIcons(); </script>
+</body>
+</html>

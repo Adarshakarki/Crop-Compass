@@ -1,0 +1,184 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #d9e9cf 0%, #b6ceb4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.container {
+    width: 900px;
+}
+
+.input-card {
+    display: flex;
+    background: #B6CEB4;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    height: auto; /* instead of 500px */
+    min-height: 500px;
+}
+
+
+/* Left image */
+.image-section {
+    width: 40%;
+    background: #d9e9cf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* small padding around image */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 15px; /* rounded corners for the image itself */
+    background: #d9d9d9; /* optional: matches card background, shows like border */
+}
+
+/* Right form */
+.form-section {
+    width: 60%;
+    padding: 30px 40px 30px 40px;
+    background: #d9e9cf; 
+}
+
+h1,h2,h3 {
+    margin-bottom: 10px; 
+    color: #4F6D46; 
+    font-weight: bold;
+}
+
+/* Field card */
+.field-card {
+    background: #B6CEB4; 
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px; 
+}
+
+/* Dropdown styling */
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #D9E9CF;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus {
+    outline: none;
+    border: 1px solid #96A78D;
+    box-shadow: 0 0 0 2px rgba(150, 167, 141, 0.3);
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    margin-bottom: 6px;
+    color: #4F6D46; 
+}
+
+.info-btn {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    color: #4F6D46;
+}
+
+/* INPUT */
+input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #D9E9CF;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #96A78D;
+    box-shadow: 0 0 0 2px rgba(150, 167, 141, 0.3);
+}
+
+/* Button */
+.calculate-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px;
+    font-size: 17px;
+    background: #96A78D;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #F0F0F0; 
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.calculate-btn:hover {
+    background: #4F6D46; 
+}
+
+/* ─────────────────────────── MODAL DESIGN ─────────────────────────── */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.3);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.modal-content {
+    background: #D9E9CF;
+    width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    color: #333; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.modal-content h3 {
+    font-family: 'Cormorant Garamond', serif; 
+    color: #4F6D46; 
+    margin-top: 5px; 
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    color: #96A78D; 
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #4F6D46; 
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+    <title>Crop Recommendation</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='wheat.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="input-card">
+        <div class="form-section">
+            <div class="form-image">
+                <img src="{{ url_for('static', filename='crop.jpg') }}" alt="Crop Image">
+            </div>
+
+            <div class="form-fields">
+<h1 class="integrated-header">
+  <i data-lucide="wheat"></i>
+  Crop Recommendation System
+</h1>
+                <h2>Enter Soil & Climate Parameters</h2>
+                <form action="/predict" method="post">
+                    <div class="fields-grid">
+
+                        <div class="field-card">
+                            <input name="boron" id="input-boron" type="number" step="any" placeholder="Boron (mg/kg)" required>
+                            <button type="button" class="info-btn" data-info="Boron helps in cell wall formation and growth.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="clay" id="input-clay" type="number" step="any" placeholder="Clay (%)" required>
+                            <button type="button" class="info-btn" data-info="Clay percentage affects soil water retention.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="nitrogen" id="input-nitrogen" type="number" step="any" placeholder="Nitrogen (%)" required>
+                            <button type="button" class="info-btn" data-info="Nitrogen is essential for leafy growth.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="organic" id="input-organic" type="number" step="any" placeholder="Organic Matter (%)" required>
+                            <button type="button" class="info-btn" data-info="Organic matter improves soil fertility.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="k" id="input-k" type="number" step="any" placeholder="Potassium (Kg/ha)" required>
+                            <button type="button" class="info-btn" data-info="Potassium improves root development and stress tolerance.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="p2o5" id="input-p2o5" type="number" step="any" placeholder="Phosphorus (Kg/ha)" required>
+                            <button type="button" class="info-btn" data-info="Phosphorus (P₂O₅) is vital for energy transfer and root growth.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="ph" id="input-ph" type="number" step="any" placeholder="pH" required>
+                            <button type="button" class="info-btn" data-info="pH affects nutrient availability in soil.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="sand" id="input-sand" type="number" step="any" placeholder="Sand (%)" required>
+                            <button type="button" class="info-btn" data-info="Sand content influences drainage and aeration.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="slit" id="input-silt" type="number" step="any" placeholder="Silt (%)" required>
+                            <button type="button" class="info-btn" data-info="Silt improves soil fertility and water retention.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="zinc" id="input-zinc" type="number" step="any" placeholder="Zinc (mg/kg)" required>
+                            <button type="button" class="info-btn" data-info="Zinc is important for enzyme function in plants.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="avg_temp" id="input-temp" type="number" step="any" placeholder="Avg Temp (°C)" required>
+                            <button type="button" class="info-btn" data-info="Average temperature affects crop growth cycle.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <div class="field-card">
+                            <input name="avg_rain" id="input-rain" type="number" step="any" placeholder="Avg Rain (mm)" required>
+                            <button type="button" class="info-btn" data-info="Average rainfall determines water availability.">
+                                <i data-lucide="badge-info"></i>
+                            </button>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Recommend Crop</button>
+
+                    </div>
+                </form>
+                
+                {% if prediction %}
+                <div class="result integrated-result">
+<div class="result integrated-result">
+  <i data-lucide="sprout"></i>
+  Recommended Crop: <strong>{{ prediction }}</strong>
+</div>
+
+                </div>
+                {% endif %}
+                
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+<div class="info-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p class="modal-text"></p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

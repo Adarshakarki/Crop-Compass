@@ -1,0 +1,277 @@
+/* --- Fonts & Colors --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    /* Body background */
+    background: linear-gradient(135deg, #dbe3d5 0%, #b6ceb4 100%);
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Container (Main holder) --- */
+.container {
+    max-width: 1200px;
+    width: 90%; 
+    height: 95vh; /* Takes most of the viewport height */
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Input Card (The Glassy Element / Bezel) --- */
+.input-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+
+    /* GLASS EFFECT PROPERTIES */
+    background-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    overflow: hidden;
+    /* Equal padding for the "bezel" effect */
+    padding: 20px; 
+}
+
+/* --- Form Section (Inner Content Area) --- */
+.form-section {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 0; 
+    flex-grow: 1; /* Allows it to take all remaining vertical space */
+    overflow: hidden; 
+}
+
+/* --- Header Styling (Integrated) --- */
+.integrated-header {
+    text-align: center;
+    color: #3e4a3d; 
+    margin: 0 0 10px 0; 
+    text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    font-size: 32px; /* Set font size explicitly */
+}
+.integrated-header i[data-lucide="wheat"] {
+    width: 28px;
+    height: 28px;
+    color: black;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #8fa189;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+    flex-shrink: 0;
+    text-align: center; 
+}
+
+/* Form Image */
+.form-image {
+    flex: 0 0 40%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100%; 
+}
+.form-image img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Form Fields */
+.form-fields {
+    flex: 1;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px; /* Space for the scrollbar */
+    overflow-y: auto; /* Allow fields to scroll internally if they overflow */
+}
+
+/* Fields Grid */
+.fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    padding-bottom: 5px; /* Ensure bottom row fields don't touch scrollbar edge */
+}
+
+/* Field Card */
+.field-card {
+    background-color: rgba(240, 240, 240, 0.7); 
+    border-radius: 12px;
+    padding: 5px 10px; 
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    display: flex; 
+    align-items: center;
+}
+.field-card input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #b6ceb4;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-right: 5px; 
+    margin-top: 0;
+    /* Input Color */
+    background-color: #f8fff7; 
+    transition: background-color 0.3s;
+}
+.field-card input:focus {
+    border-color: #96A78D;
+    box-shadow: inset 0 0 5px rgba(150,167,141,0.5);
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Info Button (Lucide Icons) */
+.info-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; 
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: #4F6D46; 
+}
+.info-btn i {
+    width: 18px;
+    height: 18px;
+}
+
+/* Submit Button */
+.submit-btn {
+    grid-column: span 2;
+    padding: 10px;
+    margin-top: 10px; 
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #96A78D; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.submit-btn:hover {
+    background-color: #8fa189;
+}
+
+/* --- Result (Integrated) --- */
+.result.integrated-result {
+    /* Top margin separates it from form-section */
+    margin: 10px 0 0 0; 
+    display: flex;
+    background-color: #d9e9cf; 
+    border-radius: 12px;
+    padding: 15px; 
+    font-size: 18px; 
+    justify-content: center;
+    color: #4F6D46;
+    flex-shrink: 0; 
+    font-weight: 600;
+}
+.result strong {
+    font-weight: 700;
+    color: #4F6D46;
+    margin-left: 5px;
+}
+
+/* --- Modal --- */
+.info-modal {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.modal-content {
+    background: #D9E9CF;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    min-height: 120px;   
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    .input-card {
+        border-radius: 0;
+        padding: 15px; /* Smaller bezel on mobile */
+    }
+    .form-section {
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .form-image {
+        flex: 1 1 100%;
+        min-width: 100%;
+        max-height: 200px; 
+    }
+    .form-fields {
+        min-width: 100%;
+        padding-right: 0;
+    }
+    .fields-grid {
+        grid-template-columns: 1fr; 
+        gap: 8px;
+    }
+    .submit-btn {
+        grid-column: span 1;
+        margin-top: 5px;
+    }
+    .integrated-header {
+        font-size: 24px;
+        margin-top: 5px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+}
